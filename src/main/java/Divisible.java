@@ -16,12 +16,19 @@ public class Divisible {
 
         divisible.stream()
                 .forEach(luku -> System.out.println(luku));
+        
+        // working with reduce   method too
+        int sum = numbers.stream()
+                 .filter(i -> i >0)
+                 .reduce(0,(prev, currentIterationValue)->  prev + currentIterationValue);
+        System.out.println("Sum perfromed using reduce stream method " + sum);
     }
 
     public static ArrayList<Integer> divisible(ArrayList<Integer> numbers) {
         return  numbers.stream()
                 .filter(i -> i % 2 == 0 || i % 3 == 0 || i % 5 == 0 )
                 .collect(Collectors.toCollection(ArrayList::new));
+        
     }
 
 }
